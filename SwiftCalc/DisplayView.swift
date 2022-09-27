@@ -11,6 +11,12 @@ struct DisplayView: View {
     
 
   var body: some View {
+      if #available(macCatalyst 15.0, iOS 15.0, *) {
+        let _ = Self._printChanges()
+      } else {
+          // Fallback on earlier versions
+      }
+      
     HStack {
       if display.isEmpty {
         Text("0")
